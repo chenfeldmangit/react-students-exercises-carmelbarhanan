@@ -1,0 +1,226 @@
+$font-stack:    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+@use 'profilePicture';
+@use 'pageRows';
+@use 'icons';
+
+@mixin button($width) {
+  text-align: center;
+  border-radius: 8px;
+  width: $width;
+  background-color: rgb(29, 161, 242);
+  color: white;
+  height: 35px;
+  box-shadow: none;
+}
+
+body {
+
+  font-family: $font-stack;
+  font-weight: 500;
+
+  .wrapper {
+    display: flex;
+
+    #middle-stream-profile, #middle-stream-twits {
+      margin-right: 5em;
+      margin-left: 5em;
+    }
+
+    #middle-stream-profile {
+      display: none;
+
+      .profile-name {
+        margin-bottom: 0;
+        font-weight: bold;
+      }
+
+      #profileNearIcon, .personal-description, .personal-description-icon {
+        float: left;
+        margin-right: 10px;
+      }
+
+      .follow-info-wrapper {
+        width: 15em;
+      }
+
+      .follow-info {
+        float: left;
+        margin-right: 10px;
+      }
+
+      .personal-description-icon {
+        padding-top: 1em;
+      }
+
+      .personal-description, .personal-description-icon {
+        color: #bbb8b8;
+        fill: #bbb8b8;
+      }
+
+      .sub-text {
+        margin: 0;
+        color: #bbb8b8;
+      }
+
+      .back-icon {
+        float: left;
+        padding-top: 22px;
+      }
+
+      #coverPhoto {
+        width: 40em;
+        height: 15em;
+        z-index: 1;
+      }
+
+      .profilePicture {
+        width: 8em;
+        height: 8em;
+        margin-top: -10%;
+        margin-left: 20px;
+      }
+
+      .edit-profile {
+        float: right;
+        border: 1px solid rgb(29, 161, 242);
+        color: rgb(29, 161, 242);
+        background-color: white;
+      }
+
+    }
+
+    #side-trends {
+      width: 80%;
+    }
+
+    li {
+      list-style-type: none;
+      height: 50px;
+    }
+
+    .twitterLogo {
+      width: 25px;
+      height: 25px;
+    }
+
+    .tweet-button {
+      @include button(180px);
+      margin-bottom: 10px;
+    }
+
+    .menuTitle {
+      display: inline;
+      padding-left: 2ex;
+    }
+
+    .profilePicture {
+      .author {
+        display: inline;
+      }
+    }
+
+    .author {
+      line-height: 25px;
+      padding-left: 8px;
+      margin: 0px;
+    }
+
+    #middle-stream {
+      padding-left: 30px;
+      max-width: 1000px;
+    }
+
+    .twitter-stream-image {
+      max-width: 350px;
+    }
+
+    #nameAndProfile {
+      display: flex;
+    }
+
+    #middle-stream-twits {
+      article {
+        padding: 10px;
+        display: inline-block;
+        width: 55em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 7px;
+      }
+
+      input[type=text] {
+        width: 90%;
+        padding: 9px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      #addTweet {
+        border:  1px solid #bbb8b8;
+        width: 40em;
+        margin: 20px;
+      }
+
+      .tweet-button {
+        margin-left: 70%;
+      }
+
+      #likeTweet, #trash{
+        float: right;
+        padding: 13px 5px 0 5px;
+      }
+
+      #numOfLikes {
+        float: right;
+      }
+
+      #timeOfTweet {
+        float: left;
+      }
+
+      .profilePicture {
+        padding: 5px 5px;
+      }
+    }
+
+    #side-trends {
+      #searchBox {
+        @include button(180px);
+        margin-bottom: 10px;
+        border: 2px solid rgb(29, 161, 242);
+        margin-top: 20px;
+        background-color: white;
+        color: black;
+      }
+
+      li {
+        width: 240px;
+        height: 60px;
+        border: 1px solid gray;
+        font-weight: normal;
+        font-size: 10px;
+      }
+
+      #tweeterNameFound {
+        float: right;
+        padding-right: 14em;
+        font-weight: bold;
+      }
+
+      #tweetContentFound {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width:200px;
+      }
+    }
+
+
+  }
+}
+
+
