@@ -5,8 +5,20 @@ import like from './icons/like.svg'
 class TweetsArticleComponent extends React.Component {
 
     constructor(props){
-        super(props)
+        super(props);
+        this.state = {color: 'none',
+                        numOfLikes: 0}
     }
+
+    likeTweet = () => {
+        if (this.state.color === 'none') {
+            this.setState({color: 'invert(.5) sepia(1) saturate(5) hue-rotate(175deg)',
+                numOfLikes: this.state.numOfLikes + 1})
+        }
+        else {
+            this.setState({numOfLikes: this.state.numOfLikes + 1})
+        }
+    };
 
     render() {
         return (
@@ -18,9 +30,9 @@ class TweetsArticleComponent extends React.Component {
                 <p id="tweenContent">{this.props.content}</p>
                 <div>
                     <p id="timeOfTweet">{this.props.time}</p>
-                    <img className="icon tweet-action" src={trash} alt="delete" onClick="Tweets.deleteTweet(this)"/>
-                    <img className="icon tweet-action" src={like} alt="like" onClick="Tweets.addLikeToTweet(this)"/>
-                    <p id="numOfLikes">{this.props.numOfLikes}</p>
+                    <img className="icon tweet-action" src={trash} alt='delete'/>
+                    <img className="icon tweet-action" src={like} alt='like' style={{filter: this.state.color}} onClick={this.likeTweet}/>
+                    <p id="numOfLikes">{this.state.numOfLikes}</p>
                 </div>
             </article>
         )

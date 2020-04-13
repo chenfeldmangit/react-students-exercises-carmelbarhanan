@@ -11,21 +11,23 @@ class TweetsStreamComponent extends React.Component {
             profilePhotoPathToTweeter: profile1,
             tweeterName: "Carmel Bar-Hanan",
             tweetContent: "Yes, The seaweed is always greener, In somebody else's lake. You dream about going up there, But that is a big mistake",
-            timeOfTweet: "March 30 2020, 14:20",
-            numberOfLikes: 1
+            timeOfTweet: "March 30 2020, 14:20"
         }, {
             id: 124,
             profilePhotoPathToTweeter: profile2,
             tweeterName: "Etai Bar-Hanan",
             tweetContent: "Down here all the fish is happy, As off through the waves they roll. Yes, The fish on the land ain't happy, They sad 'cause they in their bowl",
-            timeOfTweet: "March 31 2020, 10:41",
-            numberOfLikes: 4
+            timeOfTweet: "March 31 2020, 10:41"
         }
     ];
 
     constructor(props) {
         super(props);
     }
+
+    saveNewTweet = () => {
+        alert("Save Tweet!")
+    };
 
     render() {
         return <>
@@ -36,13 +38,13 @@ class TweetsStreamComponent extends React.Component {
                         <img className="profilePicture" src={profile1} alt="home"/>
                             <input type="text" id="tweetInput" placeholder="What's happening?"/>
                     </div>
-                    <input type="submit" value="Tweet" className="tweet-button" onClick="Tweets.saveNewTweet()"/>
+                    <input type="submit" value="Tweet" className="tweet-button" onClick={this.saveNewTweet}/>
                 </div>
                 <h3> Tweets </h3>
                 <div id="tweets"></div>
                 {this.tweetsList.map(item => {
                     return <TweetsArticleComponent author={item.tweeterName} profile={item.profilePhotoPathToTweeter} content={item.tweetContent}
-                    time={item.timeOfTweet} numOfLikes={item.numberOfLikes} key={item.id}
+                    time={item.timeOfTweet} key={item.id}
                     > </TweetsArticleComponent>
                 })}
             </div>
