@@ -1,7 +1,7 @@
 import React from 'react';
 import './style/style.scss'
 import SideMenuComponent from './SideMenuComponent'
-import TweetsStreamComponent from "./TweetsStreamComponent";
+import NewsFeedComponent from "./NewsFeedComponent";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
                 <SideMenuComponent/>
             </div>
             <div id="middle-stream-twits">
-                <TweetsStreamComponent/>
+                <NewsFeedComponent/>
             </div>
           </div>
       </>
