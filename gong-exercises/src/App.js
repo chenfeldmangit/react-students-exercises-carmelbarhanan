@@ -1,7 +1,7 @@
 import React from 'react';
 import './style/style.scss'
-import SideMenuComponent from './SideMenuComponent'
-import NewsFeedComponent from "./NewsFeedComponent";
+import SideMenuComponent from './Components/SideMenuComponent'
+import NewsFeedComponent from "./Components/NewsFeedComponent";
 
 function App() {
   return (

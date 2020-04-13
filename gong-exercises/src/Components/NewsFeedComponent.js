@@ -1,7 +1,7 @@
 import React from 'react';
 import NewsFeedTweetComponent from "./NewsFeedTweetComponent";
-import profile1 from "./images/profile.jpg";
-import profile2 from "./images/profile2.jpg";
+import profile1 from "../images/profile.jpg";
+import profile2 from "../images/profile2.jpg";
 
 
 const tweetsList = [

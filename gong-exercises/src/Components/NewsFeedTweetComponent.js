@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import trash from './icons/trash.svg'
-import like from './icons/like.svg'
+import trash from '../icons/trash.svg'
+import like from '../icons/like.svg'
 
 
 export default function NewsFeedTweetComponent(props){
