@@ -5,17 +5,15 @@ class SideMenuItemComponent extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {
-            src: props.src,
-            title: props.title
-        }
     }
 
     render() {
-        return (<li>
+        return (<li className="side-nav-item">
                 <div id="profileLink">
-                    <img className="icon" src={this.props.src} alt={this.props.title}></img>
-                    <h3 className="menuTitle"> {this.props.title} </h3>
+                    {this.props.title === 'Profile' ?
+                    <img className="icon profilePicture" src={this.props.src} alt={this.props.title}></img> :
+                    <img className="icon" src={this.props.src} alt={this.props.title}></img>}
+                    <h2 className="menuTitle"> {this.props.title} </h2>
                 </div>
                 </li>);
     }
