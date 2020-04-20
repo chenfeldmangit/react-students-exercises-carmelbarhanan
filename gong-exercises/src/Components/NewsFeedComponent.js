@@ -6,13 +6,13 @@ import profile2 from "../images/profile2.jpg";
 
 const tweetsList = [
     {
-        id: 123,
+        id: 234,
         profilePhotoPathToTweeter: profile1,
         tweeterName: "Carmel Bar-Hanan",
         tweetContent: "Yes, The seaweed is always greener, In somebody else's lake. You dream about going up there, But that is a big mistake",
         timeOfTweet: "March 30 2020, 14:20"
     }, {
-        id: 124,
+        id: 235,
         profilePhotoPathToTweeter: profile2,
         tweeterName: "Etai Bar-Hanan",
         tweetContent: "Down here all the fish is happy, As off through the waves they roll. Yes, The fish on the land ain't happy, They sad 'cause they in their bowl",
@@ -21,6 +21,7 @@ const tweetsList = [
 ];
 
 export default function NewsFeedComponent(){
+    localStorage.setItem('tweetsList', JSON.stringify(tweetsList));
 
     return <>
         <div id="middle-stream-twits">

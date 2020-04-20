@@ -17,21 +17,20 @@ class SideMenuComponent extends React.Component {
     }
 
     render() {
-
         return (
             <>
                 <ul>
                     <img className="twitterLogo" src={twitterLogo} alt="twitterLogo"></img>
                 </ul>
                 <ul>
-                    <SideMenuItemComponent src={home} title="Home"/>
-                    <SideMenuItemComponent src={grid} title="Explore"/>
-                    <SideMenuItemComponent src={notification} title="Notification"/>
-                    <SideMenuItemComponent src={message} title="Messages"/>
-                    <SideMenuItemComponent src={bookmark} title="Bookmarks"/>
-                    <SideMenuItemComponent src={list} title="Lists"/>
-                    <SideMenuItemComponent src={profile} title="Profile"/>
-                    <SideMenuItemComponent src={more} title="More"/>
+                    <SideMenuItemComponent src={home} title="Home" link='/'/>
+                    <SideMenuItemComponent src={grid} title="Explore" link='/explore'/>
+                    <SideMenuItemComponent src={notification} title="Notification" link='/notifications'/>
+                    <SideMenuItemComponent src={message} title="Messages" link='/messeges'/>
+                    <SideMenuItemComponent src={bookmark} title="Bookmarks" link='/bookmarks'/>
+                    <SideMenuItemComponent src={list} title="Lists" link='/lists'/>
+                    <SideMenuItemComponent src={profile} title="Profile" link='/profile'/>
+                    <SideMenuItemComponent src={more} title="More" link='/more'/>
                     <li className="side-nav-item">
                         <button className="tweet-button">Tweet</button>
                     </li>

@@ -1,48 +1,73 @@
 import React from 'react';
-import NewsFeedTweetComponent from "./NewsFeedTweetComponent";
-import profile1 from "../images/profile.jpg";
-import profile2 from "../images/profile2.jpg";
+import kineret from "../images/kineret.jpg";
+import yarden from "../images/Yarden.jpg";
+import dan from "../images/dan.jpg";
+import taly from "../images/mom.jpg";
+import beny from "../images/beny.jpg";
+import heart from '../icons/heart.svg'
+import user from '../icons/user.svg'
 
-
-const tweetsList = [
+const notificationsList = [
     {
-        id: 123,
-        profilePhotoPathToTweeter: profile1,
-        tweeterName: "Carmel Bar-Hanan",
-        tweetContent: "Yes, The seaweed is always greener, In somebody else's lake. You dream about going up there, But that is a big mistake",
-        timeOfTweet: "March 30 2020, 14:20"
+        fullName: "Kineret Tavor",
+        profilePic: kineret,
+        action: "like",
+        likedTweetId: 234,
+        id: 123
     }, {
-        id: 124,
-        profilePhotoPathToTweeter: profile2,
-        tweeterName: "Etai Bar-Hanan",
-        tweetContent: "Down here all the fish is happy, As off through the waves they roll. Yes, The fish on the land ain't happy, They sad 'cause they in their bowl",
-        timeOfTweet: "March 31 2020, 10:41"
+        fullName: "Yarden Nahum Bar",
+        profilePic: yarden,
+        action: "follow",
+        id: 124
+    },
+    {
+        fullName: "Dan Bar",
+        profilePic: dan,
+        action: "like",
+        likedTweetId: 235,
+        id: 125
+    },
+    {
+        fullName: "Taly Bar",
+        profilePic: taly,
+        action: "follow",
+        id: 123
+    },
+    {
+        fullName: "Beny Bar",
+        profilePic: beny,
+        action: "like",
+        likedTweetId: 235,
+        id: 123
     }
 ];
 
-export default function NewsFeedComponent(){
+export default function NotificationsComponent(){
+    localStorage.setItem('notificationsList', JSON.stringify(notificationsList));
 
-    return <>
-        <div id="middle-stream-twits">
-            <div id="addTweet">
-                <h3>Home</h3>
-                <div>
-                    <img className="profilePicture" src={profile1} alt="home"/>
-                        <input type="text" id="tweetInput" placeholder="What's happening?"/>
-                </div>
-                <input type="submit" value="Tweet" className="tweet-button" onClick={saveNewTweet}/>
-            </div>
-            <h3> Tweets </h3>
-            {tweetsList.map(item => {
-                return <NewsFeedTweetComponent author={item.tweeterName} profile={item.profilePhotoPathToTweeter} content={item.tweetContent}
-                                               time={item.timeOfTweet} key={item.id}
-                > </NewsFeedTweetComponent>
+    var notificationsListFromStorage = JSON.parse(localStorage.getItem('notificationsList') ) || {};
+    var tweetsListFromStorage = JSON.parse(localStorage.getItem('tweetsList') ) || {};
+
+    return (<div id='middle-stream-notifications'>
+            <h1>Notification</h1>
+            <ul id='notificationList'>
+            {notificationsListFromStorage.map(item => {
+
+                var icon = item.action === 'like' ? heart : user;
+                var notificationContent = item.action === 'like' ? " liked your Tweet" : " followed you";
+                var relatedTweet = item.likedTweetId !== null ? tweetsListFromStorage.filter(t => t.id === item.likedTweetId) : null;
+                var relatedTweetContent = relatedTweet.length !== 0 ? relatedTweet[0].tweetContent: null;
+
+                return <>
+                 <li id='notificationItem' key={item.id}>
+                     <img className='icon' src={icon}/>
+                     <img className='profilePicture' src={item.profilePic}/>
+                     <p>{item.fullName + notificationContent}</p>
+                     <p className='relatedTweet'>{relatedTweetContent}</p>
+                 </li>
+                </>
             })}
-        </div>
-        </>
+            </ul>
+        </div>)
 
 }
-
-let saveNewTweet = function(){
-    alert("Save Tweet!")
-};
